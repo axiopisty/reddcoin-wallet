@@ -13,8 +13,8 @@
 	<string name="wallet_transactions_fragment_tab_received">Obdrženo</string>
 	<string name="wallet_transactions_fragment_tab_all">Oba</string>
 	<string name="wallet_transactions_fragment_tab_sent">Zasláno</string>
-	<string name="wallet_transactions_fragment_empty_text_received">Zatím žádné dogecoiny neobdrženy</string>
-	<string name="wallet_transactions_fragment_empty_text_sent">Zatím žádné dogecoiny neodeslány</string>
+	<string name="wallet_transactions_fragment_empty_text_received">Zatím žádné reddcoiny neobdrženy</string>
+	<string name="wallet_transactions_fragment_empty_text_sent">Zatím žádné reddcoiny neodeslány</string>
 	<string name="wallet_options_safety">Bezpečnost</string>
 	<string name="wallet_options_donate">Přispět</string>
 	<string name="wallet_low_storage_dialog_title">Málo vnitřní paměti!</string>
@@ -55,9 +55,9 @@
 
 	<string name="about_title">O aplikaci</string>
 	<string name="about_license_title">Licence</string>
-	<string name="about_credits_bitcoinj_title">Aplikace používá dogecoinj %s</string>
+	<string name="about_credits_bitcoinj_title">Aplikace používá reddcoinj %s</string>
 	<string name="about_credits_zxing_title">"Aplikace používá 'zxing'"</string>
-	<string name="about_credits_icon_title">"Aplikace používá ikonu od 'dogecoin'"</string>
+	<string name="about_credits_icon_title">"Aplikace používá ikonu od 'reddcoin'"</string>
 	<string name="about_author_twitter_title">Autor na Twitteru</string>
 	<string name="about_author_googleplus_title">Autor na Google+</string>
 	<string name="about_market_app_title">Aplikace na Google Play</string>

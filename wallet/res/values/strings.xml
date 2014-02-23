@@ -49,7 +49,7 @@
 	<string name="wallet_version_dialog_button_market">Google Play</string>
 	<string name="wallet_version_dialog_button_binary">Download</string>
 	<string name="wallet_precision_warning_dialog_title">Change of denomination</string>
-	<string name="wallet_precision_warning_dialog_msg">Denomination has been changed from Dogecoin (DOGE) to millidogecoin (mDOGE). All amounts are multiplied by a factor of 1000.\n\nYou can revert this change in the settings.</string>
+	<string name="wallet_precision_warning_dialog_msg">Denomination has been changed from Dogecoin (DOGE) to millireddcoin (mDOGE). All amounts are multiplied by a factor of 1000.\n\nYou can revert this change in the settings.</string>
 	<string name="wallet_old_sdk_dialog_title">Android version is out of date</string>
 	<string name="wallet_old_sdk_dialog_message">Chances are that one of the next releases of Dogecoin Wallet will not support your device any more. In some cases, it can get difficult to spend coins on this device.\n\nUnless you know what you are doing, it is recommended to move out your coins soon.</string>
 	<string name="send_coins_activity_title">Send Dogecoins</string>
@@ -165,7 +165,7 @@
 	<string name="input_parser_io_error">Cannot read data:\n%s</string>
 	<string name="input_parser_cannot_classify">Cannot classify input:\n%s</string>
 	<string name="input_parser_invalid_bitcoin_uri">Invalid Dogecoin URI:\n%s</string>
-	<string name="input_parser_invalid_address">Got invalid dogecoin address!\n(Mixing up Mainnet/Testnet?)</string>
+	<string name="input_parser_invalid_address">Got invalid reddcoin address!\n(Mixing up Mainnet/Testnet?)</string>
 	<string name="input_parser_unverifyable_paymentrequest">Cannot verify payment request:\n%s</string>
 	<string name="input_parser_invalid_paymentrequest">Invalid payment request:\n%s</string>
 	<string name="input_parser_invalid_transaction">Invalid transaction:\n%s</string>
@@ -212,9 +212,9 @@
 	<string name="report_issue_dialog_mail_intent_failed">Sending report failed.</string>
 	<string name="about_title">About</string>
 	<string name="about_license_title">License</string>
-	<string name="about_credits_bitcoinj_title">This app is using dogecoinj %s</string>
+	<string name="about_credits_bitcoinj_title">This app is using reddcoinj %s</string>
 	<string name="about_credits_zxing_title">"This app is using 'zxing'"</string>
-	<string name="about_credits_icon_title">"This app is using an icon by 'dogecoin'"</string>
+	<string name="about_credits_icon_title">"This app is using an icon by 'reddcoin'"</string>
 	<string name="about_community_googleplus_title">Google+ Community</string>
 	<string name="about_community_googleplus_summary">Discussions about the app</string>
 	<string name="about_author_twitter_title">Author at Twitter</string>

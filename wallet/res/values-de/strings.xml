@@ -54,7 +54,7 @@
 	<string name="wallet_version_dialog_button_market">Google Play</string>
 	<string name="wallet_version_dialog_button_binary">Herunterladen</string>
 	<string name="wallet_precision_warning_dialog_title">Änderung der Stückelung</string>
-	<string name="wallet_precision_warning_dialog_msg">Die Stückelung wurde von Dogecoin (DOGE) auf Millidogecoin (mDOGE) geändert. Alle Werte sind mit dem Faktor 1000 multipliziert.\n\nDiese Änderung kannst Du in den Einstellungen rückgängig machen.</string>
+	<string name="wallet_precision_warning_dialog_msg">Die Stückelung wurde von Dogecoin (DOGE) auf Millireddcoin (mDOGE) geändert. Alle Werte sind mit dem Faktor 1000 multipliziert.\n\nDiese Änderung kannst Du in den Einstellungen rückgängig machen.</string>
 	<string name="wallet_old_sdk_dialog_title">Android ist veraltet</string>
 	<string name="wallet_old_sdk_dialog_message">Es ist möglich, daß eine der nächsten Versionen von Dogecoin Wallet dein Gerät nicht mehr unterstützt. In manchen Fällen kann es schwierig werden, Zahlungen zu tätigen.\n\nEs wird empfohlen, die enthaltenen Dogecoins bald zu verschieben, außer du weisst was du tust.</string>
 
@@ -229,9 +229,9 @@
 
 	<string name="about_title">Über</string>
 	<string name="about_license_title">Lizenz</string>
-	<string name="about_credits_bitcoinj_title">Diese App nutzt dogecoinj %s</string>
+	<string name="about_credits_bitcoinj_title">Diese App nutzt reddcoinj %s</string>
 	<string name="about_credits_zxing_title">"Diese App nutzt 'zxing'"</string>
-	<string name="about_credits_icon_title">"Diese App nutzt ein Icon von 'dogecoin'"</string>
+	<string name="about_credits_icon_title">"Diese App nutzt ein Icon von 'reddcoin'"</string>
 	<string name="about_community_googleplus_title">Google+ Community</string>
 	<string name="about_community_googleplus_summary">Diskussionen über die App</string>
 	<string name="about_author_twitter_title">Autor bei Twitter</string>

@@ -9,7 +9,7 @@
 	<name>Dogecoin Integration for Android</name>
 
 	<parent>
-		<groupId>de.langerhans.wallet</groupId>
+		<groupId>com.blu3f1re.reddwallet</groupId>
 		<artifactId>base</artifactId>
 		<version>1</version>
 	</parent>

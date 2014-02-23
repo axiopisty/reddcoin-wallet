@@ -49,7 +49,7 @@
 	<string name="wallet_version_dialog_button_market">Google Play</string>
 	<string name="wallet_version_dialog_button_binary">İndir</string>
 	<string name="wallet_precision_warning_dialog_title">İsimlendirme değişikliği</string>
-	<string name="wallet_precision_warning_dialog_msg">İsimlendirme dogecoin\'den (DOGE) millidogecoin\'e (mDOGE) değiştirilmiştir. Tüm miktarlar 1000 faktörü ile çarpılmıştır.\n\nBu değişikliği ayarlarda geri alabilirsiniz.</string>
+	<string name="wallet_precision_warning_dialog_msg">İsimlendirme reddcoin\'den (DOGE) millireddcoin\'e (mDOGE) değiştirilmiştir. Tüm miktarlar 1000 faktörü ile çarpılmıştır.\n\nBu değişikliği ayarlarda geri alabilirsiniz.</string>
 	<string name="wallet_old_sdk_dialog_title">Android sürümü eski</string>
 	<string name="wallet_old_sdk_dialog_message">Gelecek Dogecoin Wallet sürümünün cihazınızı desteklememesi mümkündür. Bazı durumlarda bu cihazla bitcoin harcamak zor olabilir.\n\nDogecoinlerinizi güvenli bir yere aktarmanız tavsiye edilir.</string>
 	<string name="send_coins_activity_title">Dogecoin gönder</string>
@@ -106,7 +106,7 @@
 	<string name="address_book_options_paste_from_clipboard_invalid">Panodaki veriler tanınamadı</string>
 	<string name="address_book_options_scan_title">Adresi tara</string>
 	<string name="address_book_options_scan_invalid">Taranan veriler tanınamadı</string>
-	<string name="address_book_row_message_compromised_key">Bu adres tehlikededir. Onu artık dogecoin almak için kullanmamalısınız.</string>
+	<string name="address_book_row_message_compromised_key">Bu adres tehlikededir. Onu artık reddcoin almak için kullanmamalısınız.</string>
 	<string name="edit_address_book_entry_dialog_title_add">Adres ekle</string>
 	<string name="edit_address_book_entry_dialog_title_edit">Adres düzenle</string>
 	<string name="edit_address_book_entry_dialog_address_label">Adres</string>
@@ -157,7 +157,7 @@
 	<string name="input_parser_io_error">Veriler okunamadı:\n%s</string>
 	<string name="input_parser_cannot_classify">Girdi sınıflandırılamadı:\n%s</string>
 	<string name="input_parser_invalid_bitcoin_uri">Geçersiz Dogecoin adresi:\n%s</string>
-	<string name="input_parser_invalid_address">Geçersiz bir dogecoin adresi alındı!\n(Mainnet ve Testnet karışmış olmasın?)</string>
+	<string name="input_parser_invalid_address">Geçersiz bir reddcoin adresi alındı!\n(Mainnet ve Testnet karışmış olmasın?)</string>
 	<string name="input_parser_invalid_paymentrequest">Geçersiz ödeme talebi:\n%s</string>
 	<string name="input_parser_invalid_transaction">Geçersiz muamele:\n%s</string>
 	<string name="preferences_activity_title">Ayarlar</string>
@@ -194,9 +194,9 @@
 	<string name="report_issue_dialog_mail_intent_failed">Raporun yollanması başarısız oldu.</string>
 	<string name="about_title">Hakkında</string>
 	<string name="about_license_title">Lisans</string>
-	<string name="about_credits_bitcoinj_title">Bu uygulama dogecoinj %s kullanmaktadır</string>
+	<string name="about_credits_bitcoinj_title">Bu uygulama reddcoinj %s kullanmaktadır</string>
 	<string name="about_credits_zxing_title">Bu uygulama \'zxing\' kullanmaktadır</string>
-	<string name="about_credits_icon_title">Bu uygulama \'dogecoin\' tarafından oluşturulan bir ikon kullanır</string>
+	<string name="about_credits_icon_title">Bu uygulama \'reddcoin\' tarafından oluşturulan bir ikon kullanır</string>
 	<string name="about_community_googleplus_title">Google+ topluluğu</string>
 	<string name="about_community_googleplus_summary">Uygulama hakkında tartışmalar</string>
 	<string name="about_author_twitter_title">Geliştiricinin Twitter sayfası</string>

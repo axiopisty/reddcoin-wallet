@@ -136,7 +136,7 @@
 	<string name="scan_camera_problem_dialog_message">La videocamera ha un problema. Probabilmente è necessario riavviare il dispositivo.</string>
 	<string name="input_parser_cannot_classify">Impossibile classificare ingresso:\n%s</string>
 	<string name="input_parser_invalid_bitcoin_uri">URI Dogecoin non valido:\n%s</string>
-	<string name="input_parser_invalid_address">Ricevuto indirizzo dogecoin non valido!\n(Hai mescolato Mainnet/Testnet?)</string>
+	<string name="input_parser_invalid_address">Ricevuto indirizzo reddcoin non valido!\n(Hai mescolato Mainnet/Testnet?)</string>
 	<string name="input_parser_invalid_transaction">Transazione non valida:\n%s</string>
 	<string name="preferences_activity_title">Impostazioni</string>
 	<string name="preferences_category_main">Preferenze</string>
@@ -171,9 +171,9 @@
 	<string name="report_issue_dialog_mail_intent_chooser">Invio della segnalazione…</string>
 	<string name="about_title">Informazioni</string>
 	<string name="about_license_title">Licenza</string>
-	<string name="about_credits_bitcoinj_title">Questa applicazione fa uso di \'dogecoinj\'</string>
+	<string name="about_credits_bitcoinj_title">Questa applicazione fa uso di \'reddcoinj\'</string>
 	<string name="about_credits_zxing_title">Questa applicazione fa uso di \'zxing\'</string>
-	<string name="about_credits_icon_title">Questa applicazione fa uso di una icona di \'dogecoin.com\'</string>
+	<string name="about_credits_icon_title">Questa applicazione fa uso di una icona di \'reddcoin.com\'</string>
 	<string name="about_community_googleplus_title">Comunità Google+</string>
 	<string name="about_community_googleplus_summary">Discussioni sull\'app</string>
 	<string name="about_author_twitter_title">L\'autore su Twitter</string>

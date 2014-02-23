@@ -4,7 +4,7 @@
 
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>de.langerhans.wallet</groupId>
+	<groupId>com.blu3f1re.reddwallet</groupId>
 	<artifactId>base</artifactId>
 	<name>base</name>
 	<version>1</version>

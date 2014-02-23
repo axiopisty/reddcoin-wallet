@@ -48,7 +48,7 @@
 	<string name="wallet_version_dialog_button_market">Google Play</string>
 	<string name="wallet_version_dialog_button_binary">Download</string>
 	<string name="wallet_precision_warning_dialog_title">Ændring af denominering</string>
-	<string name="wallet_precision_warning_dialog_msg">Denominering er ændret fra dogecoin (DOGE) til millidogecoin (mDOGE). Alle beløb ganges op med en faktor 1000.\n\nDu kan ændre dette tilbage i opsætningen.</string>
+	<string name="wallet_precision_warning_dialog_msg">Denominering er ændret fra reddcoin (DOGE) til millireddcoin (mDOGE). Alle beløb ganges op med en faktor 1000.\n\nDu kan ændre dette tilbage i opsætningen.</string>
 	<string name="wallet_old_sdk_dialog_title">Android-version er uddateret</string>
 	<string name="wallet_old_sdk_dialog_message">Der er risiko for, at en af de næste udgivelser af Dogecoin Wallet ikke vil understøtte din enhed længere. I nogle tilfælde kan det være svært at bruge mønter på denne enhed.\n\nMed mindre du ved hvad du gør, anbefales det snart at flytte dine mønter væk.</string>
 	<string name="send_coins_activity_title">Send Dogecoins</string>
@@ -156,7 +156,7 @@
 	<string name="input_parser_io_error">Kan ikke læse data:\n%s</string>
 	<string name="input_parser_cannot_classify">Kan ikke klassificere input:\n%s</string>
 	<string name="input_parser_invalid_bitcoin_uri">Ugyldig Dogecoin-URI:\n%s</string>
-	<string name="input_parser_invalid_address">Modtog ugyldig dogecoin-adresse!\n(Blanding af Mainnet/Testnet?)</string>
+	<string name="input_parser_invalid_address">Modtog ugyldig reddcoin-adresse!\n(Blanding af Mainnet/Testnet?)</string>
 	<string name="input_parser_invalid_paymentrequest">Ugyldig betalingsforespørgsel:\n%s</string>
 	<string name="input_parser_invalid_transaction">Ugyldig transaktion:\n%s</string>
 	<string name="preferences_activity_title">Opsætning</string>
@@ -195,7 +195,7 @@
 	<string name="about_license_title">Licens</string>
 	<string name="about_credits_bitcoinj_title">Denne app bruger bitcoinj %s</string>
 	<string name="about_credits_zxing_title">"Denne app bruger 'zxing'"</string>
-	<string name="about_credits_icon_title">"Denne app bruger et ikon af 'dogecoin.com'"</string>
+	<string name="about_credits_icon_title">"Denne app bruger et ikon af 'reddcoin.com'"</string>
 	<string name="about_community_googleplus_title">Google+-fællesskab</string>
 	<string name="about_community_googleplus_summary">Diskussioner om appen</string>
 	<string name="about_author_twitter_title">Forfatteren på Twitter</string>

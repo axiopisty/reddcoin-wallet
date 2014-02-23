@@ -171,9 +171,9 @@
 	<string name="report_issue_dialog_mail_intent_chooser">Enviar relatório usando…</string>
 	<string name="about_title">Sobre</string>
 	<string name="about_license_title">Licença</string>
-	<string name="about_credits_bitcoinj_title">Este aplicativo utiliza dogecoinj %s</string>
+	<string name="about_credits_bitcoinj_title">Este aplicativo utiliza reddcoinj %s</string>
 	<string name="about_credits_zxing_title">Este aplicativo utiliza \'zxing\'</string>
-	<string name="about_credits_icon_title">Este aplicativo utiliza icones \'dogecoin\'</string>
+	<string name="about_credits_icon_title">Este aplicativo utiliza icones \'reddcoin\'</string>
 	<string name="about_community_googleplus_title">Comunidade Google+</string>
 	<string name="about_community_googleplus_summary">Discussões sobre o aplicativo</string>
 	<string name="about_author_twitter_title">Autor no Twitter</string>
