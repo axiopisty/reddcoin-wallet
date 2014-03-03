@@ -186,7 +186,7 @@
 
 		<receiver
 			android:name="com.blu3f1re.reddwallet.WalletBalanceWidgetProvider"
-			android:label="Dogecoin Wallet Balance" >
+			android:label="Reddcoin Wallet Balance" >
 			<intent-filter>
 				<action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
 			</intent-filter>
