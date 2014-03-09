@@ -13,10 +13,10 @@
 		<item>2/3</item>
 	</string-array>
 	<string-array name="preferences_precision_labels">
-		<item>REDD, 8 digits</item>
-		<item>REDD, 6 digits</item>
-		<item>REDD, 4 digits</item>
-		<item>mREDD, 2 digits</item>
+		<item>RDD, 8 digits</item>
+		<item>RDD, 6 digits</item>
+		<item>RDD, 4 digits</item>
+		<item>mRDD, 2 digits</item>
 	</string-array>
 
     <string-array name="preferences_exchange_values">

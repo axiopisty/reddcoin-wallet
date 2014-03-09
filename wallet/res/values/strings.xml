@@ -48,7 +48,7 @@
 	<string name="wallet_version_dialog_button_market">Google Play</string>
 	<string name="wallet_version_dialog_button_binary">Download</string>
 	<string name="wallet_precision_warning_dialog_title">Change of denomination</string>
-	<string name="wallet_precision_warning_dialog_msg">Denomination has been changed from Reddcoin (REDD) to millireddcoin (mREDD). All amounts are multiplied by a factor of 1000.\n\nYou can revert this change in the settings.</string>
+	<string name="wallet_precision_warning_dialog_msg">Denomination has been changed from Reddcoin (RDD) to millireddcoin (mRDD). All amounts are multiplied by a factor of 1000.\n\nYou can revert this change in the settings.</string>
 	<string name="wallet_old_sdk_dialog_title">Android version is out of date</string>
 	<string name="wallet_old_sdk_dialog_message">Chances are that one of the next releases of Reddcoin Wallet will not support your device any more. In some cases, it can get difficult to spend coins on this device.\n\nUnless you know what you are doing, it is recommended to move out your coins soon.</string>
 	<string name="send_coins_activity_title">Send Reddcoins</string>
@@ -63,7 +63,7 @@
 	<string name="send_coins_fragment_receiving_address_error_cross_network">Cannot use %s address with this wallet!</string>
 	<string name="send_coins_fragment_receiving_address_error_cross_network_unknown">Cannot use address of unknown network with this wallet!</string>
 	<string name="send_coins_fragment_receiving_address_complex">complex\naddress</string>
-	<string name="send_coins_fragment_pending">(REDD %s waiting for confirmation)</string>
+	<string name="send_coins_fragment_pending">(RDD %s waiting for confirmation)</string>
 	<string name="send_coins_fragment_amount_label">Amount to pay</string>
 	<string name="send_coins_fragment_direct_payment_enable">Send payment directly to the payee.</string>
 	<string name="send_coins_fragment_direct_payment_ack">Your payment was successfully sent directly.</string>

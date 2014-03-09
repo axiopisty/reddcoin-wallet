@@ -56,7 +56,7 @@
 	<string name="send_coins_fragment_receiving_address_error">Некорректный Reddcoin-адрес!</string>
 	<string name="send_coins_fragment_receiving_address_error_cross_network">Невозможно использовать адрес %s с этим бумажником!</string>
 	<string name="send_coins_fragment_receiving_address_error_cross_network_unknown">Невозможно использовать адрес неизвестной сети с этим бумажником</string>
-	<string name="send_coins_fragment_pending">(REDD %s ожидают подтверждения)</string>
+	<string name="send_coins_fragment_pending">(RDD %s ожидают подтверждения)</string>
 	<string name="send_coins_fragment_amount_label">Величина оплаты</string>
 	<string name="send_coins_fragment_button_send">Отправить</string>
 	<string name="send_coins_fragment_button_back">Назад</string>

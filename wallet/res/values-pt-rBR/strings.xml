@@ -56,7 +56,7 @@
 	<string name="send_coins_fragment_receiving_address_error">Endereço Reddcoin inválido!</string>
 	<string name="send_coins_fragment_receiving_address_error_cross_network">Não é possível usar o endereço %s com esta carteira!</string>
 	<string name="send_coins_fragment_receiving_address_error_cross_network_unknown">Não é possível usar um endereço de rede desconhecido com esta carteira!</string>
-	<string name="send_coins_fragment_pending">(%s REDD esperando confirmação)</string>
+	<string name="send_coins_fragment_pending">(%s RDD esperando confirmação)</string>
 	<string name="send_coins_fragment_amount_label">Quantidade a pagar</string>
 	<string name="send_coins_fragment_button_send">Enviar</string>
 	<string name="send_coins_fragment_button_back">Voltar</string>
@@ -197,7 +197,7 @@
 	<string name="button_share">Compartilhar</string>
 	<string name="button_set_as_default">Definir como padrão</string>
 	<string name="button_request_coins">Solicitar Reddcoins</string>
-	<string name="button_send_coins">Enviar REDD</string>
+	<string name="button_send_coins">Enviar RDD</string>
 	<string name="button_scan">Escanear</string>
 	<string name="button_edit_address">Adicionar/editar endereço</string>
 	<string name="button_settings">Configurações</string>

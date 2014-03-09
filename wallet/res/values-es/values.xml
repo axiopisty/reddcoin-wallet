@@ -2,10 +2,10 @@
 <resources>
 
 	<string-array name="preferences_precision_labels">
-		<item>REDD, 8 dígitos</item>
-		<item>REDD, 6 dígitos</item>
-		<item>REDD, 4 dígitos</item>
-		<item>mREDD, 2 dígitos</item>
+		<item>RDD, 8 dígitos</item>
+		<item>RDD, 6 dígitos</item>
+		<item>RDD, 4 dígitos</item>
+		<item>mRDD, 2 dígitos</item>
 	</string-array>
 
 </resources>
