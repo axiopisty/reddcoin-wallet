@@ -51,7 +51,6 @@ public class Constants
 	public static final String CHECKPOINTS_FILENAME = "checkpoints" + FILENAME_NETWORK_SUFFIX;
 	
 	
-	//TODO: Change this to correct values
 	private static final String BLOCKEXPLORER_BASE_URL_PROD = "http://cryptexplorer.com/";
 	private static final String BLOCKEXPLORER_BASE_URL_TEST = "https://dogechain.info/testnet/"; //RDD: Not yet...
 	public static final String BLOCKEXPLORER_BASE_URL = NETWORK_PARAMETERS.getId().equals(NetworkParameters.ID_MAINNET) ? BLOCKEXPLORER_BASE_URL_PROD
@@ -85,7 +84,6 @@ public class Constants
 	public static final int MBTC_MAX_PRECISION = 5;
 	public static final int LOCAL_PRECISION = 4;
 	
-	//TODO: Change this
 	public static final String DONATION_ADDRESS = "RZmXzfyiB2LVBFLQwWtgcBs1y2kqnpDkxo";
 	public static final String REPORT_EMAIL = "reddcoinandroid@blu3f1re.com";
 	
@@ -94,9 +92,8 @@ public class Constants
 
 	public static final String LICENSE_URL = "http://www.gnu.org/licenses/gpl-3.0.txt";
 	
-	//TODO: Change
 	public static final String SOURCE_URL = "https://github.com/blu3f1re/reddcoin-wallet";
-	public static final String BINARY_URL = "http://langerhans.github.io/reddcoin-wallet-new/";
+	public static final String BINARY_URL = "http://blu3f1re.github.io/reddcoin-wallet/";
 	public static final String CREDITS_BITCOINJ_URL = "https://github.com/blu3f1re/reddcoinj";
 	
 	
@@ -104,14 +101,13 @@ public class Constants
 	public static final String CREDITS_ICON_URL = "http://reddcoin.com/";
 	
 	//TODO: Change
-	public static final String AUTHOR_TWITTER_URL = "https://twitter.com/#!/langer_hans";
+	public static final String AUTHOR_TWITTER_URL = "https://twitter.com/#!/";
 	public static final String AUTHOR_GOOGLEPLUS_URL = "https://plus.google.com/+MaximilianKeller";
 	public static final String COMMUNITY_GOOGLEPLUS_URL = ""; //TODO
 	public static final String MARKET_APP_URL = "market://details?id=%s";
 	public static final String WEBMARKET_APP_URL = "https://play.google.com/store/apps/details?id=%s";
-	public static final String MARKET_PUBLISHER_URL = "market://search?q=pub:\"Maximilian Keller\"";
+	public static final String MARKET_PUBLISHER_URL = "market://search?q=pub:\"Blu3F1re\"";
 	
-	//TODO: Change
 	public static final String VERSION_URL = "http://wallet.blu3f1re.com/version";
 	public static final int HTTP_TIMEOUT_MS = 15 * (int) DateUtils.SECOND_IN_MILLIS;
 

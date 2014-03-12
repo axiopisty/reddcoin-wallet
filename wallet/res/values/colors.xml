@@ -9,12 +9,13 @@
 
 	<!-- background -->
 	<color name="bg_bright">#ffffffff</color>
-	<color name="bg_less_bright">#ffcc252c</color>
+	<color name="bg_less_bright">#ffffcb08</color>
 	<color name="bg_panel">#ffed1c24</color>
 	<color name="bg_form">#ffe8e8f0</color>
 	<color name="bg_list">#40ffffff</color>
 	<color name="bg_list_selected">#40808090</color>
 	<color name="bg_dialog_title">#ffb8b8b0</color>
+	<color name="bg_balance_fragment">#fff57f20</color>
 
 	<!-- scanner -->
 	<color name="scan_mask">#60000000</color>

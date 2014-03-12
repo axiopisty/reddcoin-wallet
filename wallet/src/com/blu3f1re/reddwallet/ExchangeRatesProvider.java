@@ -94,9 +94,10 @@ public class ExchangeRatesProvider extends ContentProvider
 	private static final String[] BITCOINAVERAGE_FIELDS = new String[] { "24h_avg", "last" };
 	private static final URL BLOCKCHAININFO_URL;
 	private static final String[] BLOCKCHAININFO_FIELDS = new String[] { "15m" };
-    private static final URL RDDPOOL_URL;
-    private static final URL CRYPTSY_URL;
-    private static final URL VIRCUREX_URL;
+    //private static final URL RDDPOOL_URL;
+    //private static final URL CRYPTSY_URL;
+    //private static final URL VIRCUREX_URL;
+    private static final URL BITTREX_URL;
 
 	// https://bitmarket.eu/api/ticker
 
@@ -106,9 +107,10 @@ public class ExchangeRatesProvider extends ContentProvider
 		{
 			BITCOINAVERAGE_URL = new URL("https://api.bitcoinaverage.com/ticker/global/all");
             BLOCKCHAININFO_URL = new URL("https://blockchain.info/ticker");
-            RDDPOOL_URL = new URL("http://dogepool.com/lastdoge");
-            CRYPTSY_URL = new URL("http://pubapi.cryptsy.com/api.php?method=singlemarketdata&marketid=132");
-            VIRCUREX_URL = new URL("https://vircurex.com/api/get_last_trade.json?base=RDD&alt=BTC");
+            //RDDPOOL_URL = new URL("http://dogepool.com/lastdoge");
+            //CRYPTSY_URL = new URL("http://pubapi.cryptsy.com/api.php?method=singlemarketdata&marketid=132");
+            //VIRCUREX_URL = new URL("https://vircurex.com/api/get_last_trade.json?base=DOGE&alt=BTC");
+            BITTREX_URL = new URL("https://bittrex.com/api/v1/public/getticker?market=BTC-RDD");
 		}
 		catch (final MalformedURLException x)
 		{
@@ -177,10 +179,10 @@ public class ExchangeRatesProvider extends ContentProvider
                 String providerUrl;
                 switch (provider) {
                     case 0:
-                        providerUrl = "http://www.cryptsy.com";
+                    	providerUrl = "http://www.bittrex.com";
                         break;
                     case 1:
-                        providerUrl = "http://www.vircurex.com";
+                        providerUrl = "http://www.bittrex.com";
                         break;
                     default:
                         providerUrl = "";
@@ -380,13 +382,13 @@ public class ExchangeRatesProvider extends ContentProvider
         URL providerUrl;
         switch (provider) {
             case 0:
-                providerUrl = RDDPOOL_URL;
+                providerUrl = BITTREX_URL;
                 break;
             case 1:
-                providerUrl = VIRCUREX_URL;
+                providerUrl = BITTREX_URL;
                 break;
             default:
-                providerUrl = RDDPOOL_URL;
+                providerUrl = BITTREX_URL;
                 break;
         }
 
@@ -409,17 +411,15 @@ public class ExchangeRatesProvider extends ContentProvider
                     float rate;
                     switch (provider) {
                         case 0:
-                            /*rate = Float.parseFloat(
-                                json.getJSONObject("return")
-                                    .getJSONObject("markets")
-                                    .getJSONObject("RDD")
-                                    .getString("lasttradeprice"));*/ //For later use.
-                            rate = Float.parseFloat(content.toString());
+                        	final JSONObject json = new JSONObject(content.toString());
+                        	final JSONObject results = json.getJSONObject("result");
+                            rate = (float) results.getDouble("Bid");
                             break;
                         case 1:
-                            final JSONObject json = new JSONObject(content.toString());
-                            rate = Float.parseFloat(
-                                    json.getString("value"));
+                            //final JSONObject json = new JSONObject(content.toString());
+                            //rate = Float.parseFloat(
+                            //        json.getString("value"));
+                        	rate =  -1;
                             break;
                         default:
                             return -1;

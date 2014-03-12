@@ -200,8 +200,7 @@ public class WalletApplication extends Application
 		log.addAppender(fileAppender);
 		log.addAppender(logcatAppender);
 		
-		//TODO: Change me
-		log.setLevel(Level.DEBUG);
+		log.setLevel(Level.INFO);
 	}
 
 	private static final class WalletAutosaveEventListener implements WalletFiles.Listener
