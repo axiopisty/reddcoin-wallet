@@ -52,7 +52,7 @@ public class Constants
 	
 	
 	//TODO: Change this to correct values
-	private static final String BLOCKEXPLORER_BASE_URL_PROD = "http://cryptexplorer.com/chain/ReddCoin";
+	private static final String BLOCKEXPLORER_BASE_URL_PROD = "http://cryptexplorer.com/";
 	private static final String BLOCKEXPLORER_BASE_URL_TEST = "https://dogechain.info/testnet/"; //RDD: Not yet...
 	public static final String BLOCKEXPLORER_BASE_URL = NETWORK_PARAMETERS.getId().equals(NetworkParameters.ID_MAINNET) ? BLOCKEXPLORER_BASE_URL_PROD
 			: BLOCKEXPLORER_BASE_URL_TEST;
@@ -95,9 +95,9 @@ public class Constants
 	public static final String LICENSE_URL = "http://www.gnu.org/licenses/gpl-3.0.txt";
 	
 	//TODO: Change
-	public static final String SOURCE_URL = "https://github.com/langerhans/reddcoin-wallet-new";
+	public static final String SOURCE_URL = "https://github.com/blu3f1re/reddcoin-wallet";
 	public static final String BINARY_URL = "http://langerhans.github.io/reddcoin-wallet-new/";
-	public static final String CREDITS_BITCOINJ_URL = "https://github.com/langerhans/reddcoinj-new";
+	public static final String CREDITS_BITCOINJ_URL = "https://github.com/blu3f1re/reddcoinj";
 	
 	
 	public static final String CREDITS_ZXING_URL = "http://code.google.com/p/zxing/";

@@ -189,7 +189,7 @@ public class ExchangeRatesProvider extends ContentProvider
                 float mBTCRate = dogeBtcConversion*1000;
                 String strmBTCRate = String.format("%.5f", mBTCRate).replace(',', '.');
                 newExchangeRates.put("mBTC", new ExchangeRate("mBTC", new BigDecimal(GenericUtils.toNanoCoins(strmBTCRate, 0)).toBigInteger(), providerUrl));
-                newExchangeRates.put("DOGE", new ExchangeRate("DOGE", BigInteger.valueOf(100000000), "priceofdoge.com"));
+                //newExchangeRates.put("DOGE", new ExchangeRate("RDD", BigInteger.valueOf(100000), "priceofdoge.com"));
 				exchangeRates = newExchangeRates;
 				lastUpdated = now;
 
