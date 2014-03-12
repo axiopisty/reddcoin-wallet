@@ -199,7 +199,9 @@ public class WalletApplication extends Application
 		final ch.qos.logback.classic.Logger log = context.getLogger(Logger.ROOT_LOGGER_NAME);
 		log.addAppender(fileAppender);
 		log.addAppender(logcatAppender);
-		log.setLevel(Level.INFO);
+		
+		//TODO: Change me
+		log.setLevel(Level.DEBUG);
 	}
 
 	private static final class WalletAutosaveEventListener implements WalletFiles.Listener

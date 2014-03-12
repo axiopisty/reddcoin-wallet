@@ -60,7 +60,7 @@ public class Constants
 	public static final String MIMETYPE_PAYMENTREQUEST = "application/reddcoin-paymentrequest"; // BIP 71
 	public static final String MIMETYPE_PAYMENT = "application/reddcoin-payment"; // BIP 71
 	public static final String MIMETYPE_PAYMENTACK = "application/reddcoin-paymentack"; // BIP 71
-	public static final String MIMETYPE_TRANSACTION = "application/x-dogetx";
+	public static final String MIMETYPE_TRANSACTION = "application/x-reddtx";
 
 	public static final int MAX_NUM_CONFIRMATIONS = 3;
 	public static final String USER_AGENT = "Reddcoin Wallet";
