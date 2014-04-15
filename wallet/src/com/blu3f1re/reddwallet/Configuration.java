@@ -47,10 +47,8 @@ public class Configuration
 	public static final String PREFS_KEY_DISCLAIMER = "disclaimer";
 	public static final String PREFS_KEY_SELECTED_ADDRESS = "selected_address";
 	private static final String PREFS_KEY_LABS_QR_PAYMENT_REQUEST = "labs_qr_payment_request";
-	private static final String PREFS_KEY_LABS_NFC_PAYMENT_REQUEST = "labs_nfc_payment_request";
 
 	private static final String PREFS_KEY_LAST_VERSION = "last_version";
-	private static final String PREFS_KEY_LAST_USED = "last_used";
 	private static final String PREFS_KEY_BEST_CHAIN_HEIGHT_EVER = "best_chain_height_ever";
 	private static final String PREFS_KEY_CACHED_EXCHANGE_CURRENCY = "cached_exchange_currency";
 	private static final String PREFS_KEY_CACHED_EXCHANGE_RATE = "cached_exchange_rate";
@@ -58,7 +56,22 @@ public class Configuration
 	private static final String PREFS_KEY_CHANGE_LOG_VERSION = "change_log_version";
 	public static final String PREFS_KEY_REMIND_BACKUP = "remind_backup";
 
+<<<<<<< HEAD:wallet/src/com/blu3f1re/reddwallet/Configuration.java
 	private static final String PREFS_DEFAULT_BTC_PRECISION = "4";
+=======
+    public static final String PREFS_KEY_LAST_USED = "last_used";
+    public static final String PREFS_KEY_AUTOSYNC_SWITCH = "auto_sync_switch";
+    public static final String PREFS_KEY_AUTOSYNC_CHARGE = "auto_sync_charging";
+    public static final String PREFS_KEY_AUTOSYNC_WIFI = "auto_sync_wifi";
+    public static final String PREFS_KEY_EXCHANGE_PROVIDER = "exchange_provider";
+    public static final String PREFS_KEY_EXCHANGE_FORCE_REFRESH = "exchange_force";
+
+    public static final String PREFS_KEY_LOCALE_OVERRIDE = "locale_override";
+    public static final String PREFS_KEY_LOCALE_REFRESH = "locale_refresh";
+
+    private static final int PREFS_DEFAULT_BTC_SHIFT = 3;
+    private static final int PREFS_DEFAULT_BTC_PRECISION = 2;
+>>>>>>> bd56e11549adc6515bed5979eba365c46963d6b4:wallet/src/de/langerhans/wallet/Configuration.java
 
 	private static final Logger log = LoggerFactory.getLogger(Configuration.class);
 
@@ -76,25 +89,51 @@ public class Configuration
 
 	public int getBtcPrecision()
 	{
-		final String precision = prefs.getString(PREFS_KEY_BTC_PRECISION, PREFS_DEFAULT_BTC_PRECISION);
-		return precision.charAt(0) - '0';
+		final String precision = prefs.getString(PREFS_KEY_BTC_PRECISION, null);
+		if (precision != null)
+			return precision.charAt(0) - '0';
+		else
+			return PREFS_DEFAULT_BTC_PRECISION;
 	}
 
 	public int getBtcMaxPrecision()
 	{
-		return getBtcShift() == 0 ? Constants.BTC_MAX_PRECISION : Constants.MBTC_MAX_PRECISION;
+		final int btcShift = getBtcShift();
+
+		if (btcShift == 0)
+			return Constants.BTC_MAX_PRECISION;
+		else if (btcShift == 3)
+			return Constants.MBTC_MAX_PRECISION;
+		else
+			return Constants.UBTC_MAX_PRECISION;
 	}
 
 	public int getBtcShift()
 	{
-		final String precision = prefs.getString(PREFS_KEY_BTC_PRECISION, PREFS_DEFAULT_BTC_PRECISION);
-		return precision.length() == 3 ? precision.charAt(2) - '0' : 0;
+		final String precision = prefs.getString(PREFS_KEY_BTC_PRECISION, null);
+		if (precision != null)
+			return precision.length() == 3 ? precision.charAt(2) - '0' : 0;
+		else
+			return PREFS_DEFAULT_BTC_SHIFT;
 	}
 
 	public String getBtcPrefix()
 	{
-		return getBtcShift() == 0 ? Constants.CURRENCY_CODE_BTC : Constants.CURRENCY_CODE_MBTC;
+		final int btcShift = getBtcShift();
+
+		if (btcShift == 0)
+			return Constants.CURRENCY_CODE_BTC;
+		else if (btcShift == 3)
+			return Constants.CURRENCY_CODE_MBTC;
+		else
+			return Constants.CURRENCY_CODE_UBTC;
 	}
+
+    public String getLocale()
+    {
+        final String locale = prefs.getString(PREFS_KEY_LOCALE_OVERRIDE, null);
+        return locale == null ? "0" : locale;
+    }
 
 	public boolean getConnectivityNotificationEnabled()
 	{
@@ -154,11 +193,6 @@ public class Configuration
 	public boolean getQrPaymentRequestEnabled()
 	{
 		return prefs.getBoolean(PREFS_KEY_LABS_QR_PAYMENT_REQUEST, false);
-	}
-
-	public boolean getNfcPaymentRequestEnabled()
-	{
-		return prefs.getBoolean(PREFS_KEY_LABS_NFC_PAYMENT_REQUEST, false);
 	}
 
 	public boolean versionCodeCrossed(final int currentVersionCode, final int triggeringVersionCode)

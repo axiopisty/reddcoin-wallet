@@ -26,11 +26,14 @@ import com.blu3f1re.reddwallet.WalletApplication;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import android.app.AlarmManager;
-import android.app.PendingIntent;
 import android.preference.PreferenceManager;
+<<<<<<< HEAD:wallet/src/com/blu3f1re/reddwallet/service/AutosyncReceiver.java
 import android.text.format.DateUtils;
 import com.blu3f1re.reddwallet.Constants;
+=======
+import de.langerhans.wallet.Constants;
+import de.langerhans.wallet.Configuration;
+>>>>>>> bd56e11549adc6515bed5979eba365c46963d6b4:wallet/src/de/langerhans/wallet/service/AutosyncReceiver.java
 
 /**
  * @author Andreas Schildbach
@@ -56,10 +59,10 @@ public class AutosyncReceiver extends BroadcastReceiver
 			    return;
 
 		final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-		prefsLastUsed = prefs.getLong(Constants.PREFS_KEY_LAST_USED, 0);
-        final boolean prefsAutosyncSwitch = prefs.getBoolean(Constants.PREFS_KEY_AUTOSYNC_SWITCH, false);
-        final boolean prefsAutosyncCharge = prefs.getBoolean(Constants.PREFS_KEY_AUTOSYNC_CHARGE, false);
-        final boolean prefsAutosyncWiFi = prefs.getBoolean(Constants.PREFS_KEY_AUTOSYNC_WIFI, false);
+		prefsLastUsed = prefs.getLong(Configuration.PREFS_KEY_LAST_USED, 0);
+        final boolean prefsAutosyncSwitch = prefs.getBoolean(Configuration.PREFS_KEY_AUTOSYNC_SWITCH, false);
+        final boolean prefsAutosyncCharge = prefs.getBoolean(Configuration.PREFS_KEY_AUTOSYNC_CHARGE, false);
+        final boolean prefsAutosyncWiFi = prefs.getBoolean(Configuration.PREFS_KEY_AUTOSYNC_WIFI, false);
         mCtx = context;
 
         // determine WiFi state.

@@ -20,6 +20,7 @@ package com.blu3f1re.reddwallet;
 import java.io.File;
 import java.nio.charset.Charset;
 
+import android.os.Build;
 import android.os.Environment;
 import android.text.format.DateUtils;
 
@@ -60,6 +61,8 @@ public class Constants
 	public static final String MIMETYPE_PAYMENT = "application/reddcoin-payment"; // BIP 71
 	public static final String MIMETYPE_PAYMENTACK = "application/reddcoin-paymentack"; // BIP 71
 	public static final String MIMETYPE_TRANSACTION = "application/x-reddtx";
+	public static final String MIMETYPE_BACKUP_PRIVATE_KEYS = "x-reddcoin/private-keys";
+	
 
 	public static final int MAX_NUM_CONFIRMATIONS = 3;
 	public static final String USER_AGENT = "Reddcoin Wallet";
@@ -70,6 +73,7 @@ public class Constants
 
 	public static final String CURRENCY_CODE_BTC = "RDD";
 	public static final String CURRENCY_CODE_MBTC = "mRDD";
+	public static final String CURRENCY_CODE_UBTC = "µRDD";
 	public static final char CHAR_HAIR_SPACE = '\u200a';
 	public static final char CHAR_THIN_SPACE = '\u2009';
 	public static final char CHAR_ALMOST_EQUAL_TO = '\u2248';
@@ -82,6 +86,7 @@ public class Constants
 
 	public static final int BTC_MAX_PRECISION = 8;
 	public static final int MBTC_MAX_PRECISION = 5;
+	public static final int UBTC_MAX_PRECISION = 2;
 	public static final int LOCAL_PRECISION = 4;
 	
 	public static final String DONATION_ADDRESS = "RZmXzfyiB2LVBFLQwWtgcBs1y2kqnpDkxo";
@@ -111,32 +116,12 @@ public class Constants
 	public static final String VERSION_URL = "http://wallet.blu3f1re.com/version";
 	public static final int HTTP_TIMEOUT_MS = 15 * (int) DateUtils.SECOND_IN_MILLIS;
 
-	public static final String PREFS_KEY_LAST_VERSION = "last_version";
-	public static final String PREFS_KEY_LAST_USED = "last_used";
-	public static final String PREFS_KEY_BEST_CHAIN_HEIGHT_EVER = "best_chain_height_ever";
-	public static final String PREFS_KEY_ALERT_OLD_SDK_DISMISSED = "alert_old_sdk_dismissed";
-    public static final String PREFS_KEY_REMIND_BACKUP = "remind_backup";
-    public static final String PREFS_KEY_AUTOSYNC_SWITCH = "auto_sync_switch";
-    public static final String PREFS_KEY_AUTOSYNC_CHARGE = "auto_sync_charging";
-    public static final String PREFS_KEY_AUTOSYNC_WIFI = "auto_sync_wifi";
-    public static final String PREFS_KEY_EXCHANGE_PROVIDER = "exchange_provider";
-    public static final String PREFS_KEY_EXCHANGE_FORCE_REFRESH = "exchange_force";
-
-	public static final String PREFS_KEY_CONNECTIVITY_NOTIFICATION = "connectivity_notification";
-	public static final String PREFS_KEY_SELECTED_ADDRESS = "selected_address";
-	public static final String PREFS_KEY_EXCHANGE_CURRENCY = "exchange_currency";
-	public static final String PREFS_KEY_TRUSTED_PEER = "trusted_peer";
-	public static final String PREFS_KEY_TRUSTED_PEER_ONLY = "trusted_peer_only";
-	public static final String PREFS_KEY_LABS_BLUETOOTH_OFFLINE_TRANSACTIONS = "labs_bluetooth_offline_transactions";
-	public static final String PREFS_KEY_BTC_PRECISION = "btc_precision";
-	public static final String PREFS_DEFAULT_BTC_PRECISION = "4";
-	public static final String PREFS_KEY_DISCLAIMER = "disclaimer";
-
 	public static final long LAST_USAGE_THRESHOLD_JUST_MS = DateUtils.HOUR_IN_MILLIS;
 	public static final long LAST_USAGE_THRESHOLD_RECENTLY_MS = 2 * DateUtils.DAY_IN_MILLIS;
 
-	public static final int SDK_JELLY_BEAN = 16;
 	public static final int SDK_JELLY_BEAN_MR2 = 18;
+
+	public static final int SDK_DEPRECATED_BELOW = Build.VERSION_CODES.ICE_CREAM_SANDWICH;
 
 	public static final int MEMORY_CLASS_LOWEND = 48;
 

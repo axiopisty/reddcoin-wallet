@@ -19,6 +19,7 @@ package com.blu3f1re.reddwallet;
 
 import java.io.BufferedInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.math.BigDecimal;
@@ -31,6 +32,7 @@ import java.util.Iterator;
 import java.util.Locale;
 import java.util.Map;
 import java.util.TreeMap;
+import java.util.zip.GZIPInputStream;
 
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
@@ -47,7 +49,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.MatrixCursor;
 import android.net.Uri;
-import android.preference.PreferenceManager;
 import android.provider.BaseColumns;
 import android.text.format.DateUtils;
 import com.blu3f1re.reddwallet.util.GenericUtils;
@@ -74,7 +75,7 @@ public class ExchangeRatesProvider extends ContentProvider
 		@Override
 		public String toString()
 		{
-			return getClass().getSimpleName() + '[' + currencyCode + ':' + GenericUtils.formatValue(rate, Constants.BTC_MAX_PRECISION, 0) + ']';
+			return getClass().getSimpleName() + '[' + currencyCode + ':' + GenericUtils.formatDebugValue(rate) + ']';
 		}
 	}
 
@@ -92,6 +93,8 @@ public class ExchangeRatesProvider extends ContentProvider
 
 	private static final URL BITCOINAVERAGE_URL;
 	private static final String[] BITCOINAVERAGE_FIELDS = new String[] { "24h_avg", "last" };
+    private static final String BITCOINAVERAGE_SOURCE = "BitcoinAverage.com";
+    private static final String BLOCKCHAININFO_SOURCE = "blockchain.info";
 	private static final URL BLOCKCHAININFO_URL;
 	private static final String[] BLOCKCHAININFO_FIELDS = new String[] { "15m" };
     //private static final URL RDDPOOL_URL;
@@ -105,12 +108,18 @@ public class ExchangeRatesProvider extends ContentProvider
 	{
 		try
 		{
-			BITCOINAVERAGE_URL = new URL("https://api.bitcoinaverage.com/ticker/global/all");
+			BITCOINAVERAGE_URL = new URL("https://api.bitcoinaverage.com/custom/abw");
             BLOCKCHAININFO_URL = new URL("https://blockchain.info/ticker");
+<<<<<<< HEAD:wallet/src/com/blu3f1re/reddwallet/ExchangeRatesProvider.java
             //RDDPOOL_URL = new URL("http://dogepool.com/lastdoge");
             //CRYPTSY_URL = new URL("http://pubapi.cryptsy.com/api.php?method=singlemarketdata&marketid=132");
             //VIRCUREX_URL = new URL("https://vircurex.com/api/get_last_trade.json?base=DOGE&alt=BTC");
             BITTREX_URL = new URL("https://bittrex.com/api/v1/public/getticker?market=BTC-RDD");
+=======
+            DOGEPOOL_URL = new URL("http://dogepool.com/lastdoge");
+            CRYPTSY_URL = new URL("http://pubapi.cryptsy.com/api.php?method=singlemarketdata&marketid=132");
+            VIRCUREX_URL = new URL("https://api.vircurex.com/api/get_last_trade.json?base=DOGE&alt=BTC");
+>>>>>>> bd56e11549adc6515bed5979eba365c46963d6b4:wallet/src/de/langerhans/wallet/ExchangeRatesProvider.java
 		}
 		catch (final MalformedURLException x)
 		{
@@ -151,10 +160,10 @@ public class ExchangeRatesProvider extends ContentProvider
 	{
 		final long now = System.currentTimeMillis();
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getContext());
-        int provider = Integer.parseInt(sp.getString(Constants.PREFS_KEY_EXCHANGE_PROVIDER, "0"));
-        boolean forceRefresh = sp.getBoolean(Constants.PREFS_KEY_EXCHANGE_FORCE_REFRESH, false);
+        int provider = Integer.parseInt(sp.getString(Configuration.PREFS_KEY_EXCHANGE_PROVIDER, "0"));
+        boolean forceRefresh = sp.getBoolean(Configuration.PREFS_KEY_EXCHANGE_FORCE_REFRESH, false);
         if (forceRefresh)
-            sp.edit().putBoolean(Constants.PREFS_KEY_EXCHANGE_FORCE_REFRESH, false).commit();
+            sp.edit().putBoolean(Configuration.PREFS_KEY_EXCHANGE_FORCE_REFRESH, false).commit();
 
 		if (lastUpdated == 0 || now - lastUpdated > UPDATE_FREQ_MS)
 		{
@@ -170,9 +179,9 @@ public class ExchangeRatesProvider extends ContentProvider
 
 			Map<String, ExchangeRate> newExchangeRates = null;
 			if (newExchangeRates == null)
-				newExchangeRates = requestExchangeRates(BITCOINAVERAGE_URL, dogeBtcConversion, userAgent, BITCOINAVERAGE_FIELDS);
+				newExchangeRates = requestExchangeRates(BITCOINAVERAGE_URL, dogeBtcConversion, userAgent, BITCOINAVERAGE_SOURCE, BITCOINAVERAGE_FIELDS);
 			if (newExchangeRates == null)
-				newExchangeRates = requestExchangeRates(BLOCKCHAININFO_URL, dogeBtcConversion, userAgent, BLOCKCHAININFO_FIELDS);
+				newExchangeRates = requestExchangeRates(BLOCKCHAININFO_URL, dogeBtcConversion, userAgent, BLOCKCHAININFO_SOURCE, BLOCKCHAININFO_FIELDS);
 
 			if (newExchangeRates != null)
 			{
@@ -189,7 +198,7 @@ public class ExchangeRatesProvider extends ContentProvider
                         break;
                 }
                 float mBTCRate = dogeBtcConversion*1000;
-                String strmBTCRate = String.format("%.5f", mBTCRate).replace(',', '.');
+                String strmBTCRate = String.format(Locale.US, "%.5f", mBTCRate).replace(',', '.');
                 newExchangeRates.put("mBTC", new ExchangeRate("mBTC", new BigDecimal(GenericUtils.toNanoCoins(strmBTCRate, 0)).toBigInteger(), providerUrl));
                 //newExchangeRates.put("DOGE", new ExchangeRate("RDD", BigInteger.valueOf(100000), "priceofdoge.com"));
 				exchangeRates = newExchangeRates;
@@ -284,7 +293,7 @@ public class ExchangeRatesProvider extends ContentProvider
 		throw new UnsupportedOperationException();
 	}
 
-	private static Map<String, ExchangeRate> requestExchangeRates(final URL url, float dogeBtcConversion, final String userAgent, final String... fields)
+	private static Map<String, ExchangeRate> requestExchangeRates(final URL url, float dogeBtcConversion, final String userAgent, final String source, final String... fields)
 	{
 		final long start = System.currentTimeMillis();
 
@@ -294,17 +303,26 @@ public class ExchangeRatesProvider extends ContentProvider
 		try
 		{
 			connection = (HttpURLConnection) url.openConnection();
+
+			connection.setInstanceFollowRedirects(false);
 			connection.setConnectTimeout(Constants.HTTP_TIMEOUT_MS);
 			connection.setReadTimeout(Constants.HTTP_TIMEOUT_MS);
 			connection.addRequestProperty("User-Agent", userAgent);
+			connection.addRequestProperty("Accept-Encoding", "gzip");
 			connection.connect();
 
 			final int responseCode = connection.getResponseCode();
 			if (responseCode == HttpURLConnection.HTTP_OK)
 			{
-				reader = new InputStreamReader(new BufferedInputStream(connection.getInputStream(), 1024), Constants.UTF_8);
+				final String contentEncoding = connection.getContentEncoding();
+
+				InputStream is = new BufferedInputStream(connection.getInputStream(), 1024);
+				if ("gzip".equalsIgnoreCase(contentEncoding))
+					is = new GZIPInputStream(is);
+
+				reader = new InputStreamReader(is, Constants.UTF_8);
 				final StringBuilder content = new StringBuilder();
-				Io.copy(reader, content);
+				final long length = Io.copy(reader, content);
 
 				final Map<String, ExchangeRate> rates = new TreeMap<String, ExchangeRate>();
 
@@ -329,20 +347,21 @@ public class ExchangeRatesProvider extends ContentProvider
 
 									if (dogeRate.signum() > 0)
 									{
-										rates.put(currencyCode, new ExchangeRate(currencyCode, dogeRate, url.getHost()));
+										rates.put(currencyCode, new ExchangeRate(currencyCode, dogeRate, source));
 										break;
 									}
 								}
 								catch (final ArithmeticException x)
 								{
-									log.warn("problem fetching {} exchange rate from {}: {}", new Object[] { currencyCode, url, x.getMessage() });
+									log.warn("problem fetching {} exchange rate from {} ({}): {}", currencyCode, url, contentEncoding, x.getMessage());
 								}
 							}
 						}
 					}
 				}
 
-				log.info("fetched exchange rates from {}, took {} ms", url, (System.currentTimeMillis() - start));
+				log.info("fetched exchange rates from {} ({}), {} chars, took {} ms", url, contentEncoding, length, System.currentTimeMillis()
+						- start);
 
 				return rates;
 			}

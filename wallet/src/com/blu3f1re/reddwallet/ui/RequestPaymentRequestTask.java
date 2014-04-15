@@ -94,6 +94,7 @@ public abstract class RequestPaymentRequestTask
 					{
 						connection = (HttpURLConnection) new URL(url).openConnection();
 
+						connection.setInstanceFollowRedirects(false);
 						connection.setConnectTimeout(Constants.HTTP_TIMEOUT_MS);
 						connection.setReadTimeout(Constants.HTTP_TIMEOUT_MS);
 						connection.setUseCaches(false);
@@ -101,7 +102,7 @@ public abstract class RequestPaymentRequestTask
 						connection.setDoOutput(false);
 
 						connection.setRequestMethod("GET");
-						connection.setRequestProperty("Accept", Constants.MIMETYPE_PAYMENTREQUEST);
+						connection.setRequestProperty("Accept", PaymentProtocol.MIMETYPE_PAYMENTREQUEST);
 						if (userAgent != null)
 							connection.addRequestProperty("User-Agent", userAgent);
 						connection.connect();

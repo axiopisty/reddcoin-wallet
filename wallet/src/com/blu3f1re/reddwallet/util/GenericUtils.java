@@ -29,6 +29,8 @@ import android.widget.TextView;
 
 import com.google.reddcoin.core.NetworkParameters;
 
+import de.langerhans.wallet.Constants;
+
 /**
  * @author Andreas Schildbach
  */
