@@ -42,7 +42,6 @@ import com.google.reddcoin.core.Transaction;
 import com.google.reddcoin.protocols.payments.PaymentRequestException;
 import com.google.reddcoin.protocols.payments.PaymentRequestException.PkiVerificationException;
 import com.google.reddcoin.protocols.payments.PaymentSession;
-import com.google.reddcoin.protocols.payments.PaymentSession.PkiVerificationData;
 import com.google.reddcoin.script.Script;
 import com.google.reddcoin.uri.BitcoinURI;
 import com.google.reddcoin.uri.BitcoinURIParseException;

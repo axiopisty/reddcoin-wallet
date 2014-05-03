@@ -26,17 +26,19 @@ import javax.annotation.Nullable;
 
 import org.bitcoin.protocols.payments.Protos;
 
+import android.webkit.MimeTypeMap;
+
 import com.google.reddcoin.core.Address;
 import com.google.reddcoin.core.Transaction;
+import com.google.reddcoin.protocols.payments.PaymentProtocol.PkiVerificationData;
+
 import com.google.reddcoin.protocols.payments.PaymentRequestException;
 import com.google.reddcoin.protocols.payments.PaymentSession;
-import com.google.reddcoin.protocols.payments.PaymentSession.PkiVerificationData;
 import com.google.reddcoin.script.Script;
 import com.google.reddcoin.script.ScriptBuilder;
 import com.google.protobuf.ByteString;
 import com.google.protobuf.InvalidProtocolBufferException;
 import com.google.protobuf.UninitializedMessageException;
-
 import com.blu3f1re.reddwallet.Constants;
 import com.blu3f1re.reddwallet.PaymentIntent;
 
@@ -86,8 +88,8 @@ public final class PaymentProtocol
 			{
 				// implicitly verify PKI signature
 				final PkiVerificationData verificationData = new PaymentSession(paymentRequest, true).pkiVerificationData;
-				pkiName = verificationData.name;
-				pkiOrgName = verificationData.orgName;
+				pkiName = verificationData.displayName;
+				pkiOrgName = null;
 				pkiCaName = verificationData.rootAuthorityName;
 			}
 			else
@@ -122,7 +124,7 @@ public final class PaymentProtocol
 			final String paymentUrl = paymentDetails.hasPaymentUrl() ? paymentDetails.getPaymentUrl() : null;
 			final byte[] merchantData = paymentDetails.hasMerchantData() ? paymentDetails.getMerchantData().toByteArray() : null;
 
-			final PaymentIntent paymentIntent = new PaymentIntent(PaymentIntent.Standard.BIP70, pkiName, pkiOrgName, pkiCaName,
+			final PaymentIntent paymentIntent = new PaymentIntent(PaymentIntent.Standard.BIP70, pkiName,pkiOrgName, pkiCaName,
 					outputs.toArray(new PaymentIntent.Output[0]), memo, paymentUrl, merchantData, null);
 
 			if (paymentIntent.hasPaymentUrl() && !paymentIntent.isSupportedPaymentUrl())

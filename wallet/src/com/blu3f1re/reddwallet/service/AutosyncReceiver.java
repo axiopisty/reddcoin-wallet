@@ -22,14 +22,16 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.wifi.WifiManager;
 import android.os.BatteryManager;
+
+import com.blu3f1re.reddwallet.Configuration;
 import com.blu3f1re.reddwallet.WalletApplication;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import android.app.AlarmManager;
-import android.app.PendingIntent;
 import android.preference.PreferenceManager;
 import android.text.format.DateUtils;
+
 import com.blu3f1re.reddwallet.Constants;
 
 /**
@@ -56,10 +58,10 @@ public class AutosyncReceiver extends BroadcastReceiver
 			    return;
 
 		final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-		prefsLastUsed = prefs.getLong(Constants.PREFS_KEY_LAST_USED, 0);
-        final boolean prefsAutosyncSwitch = prefs.getBoolean(Constants.PREFS_KEY_AUTOSYNC_SWITCH, false);
-        final boolean prefsAutosyncCharge = prefs.getBoolean(Constants.PREFS_KEY_AUTOSYNC_CHARGE, false);
-        final boolean prefsAutosyncWiFi = prefs.getBoolean(Constants.PREFS_KEY_AUTOSYNC_WIFI, false);
+		prefsLastUsed = prefs.getLong(Configuration.PREFS_KEY_LAST_USED, 0);
+        final boolean prefsAutosyncSwitch = prefs.getBoolean(Configuration.PREFS_KEY_AUTOSYNC_SWITCH, false);
+        final boolean prefsAutosyncCharge = prefs.getBoolean(Configuration.PREFS_KEY_AUTOSYNC_CHARGE, false);
+        final boolean prefsAutosyncWiFi = prefs.getBoolean(Configuration.PREFS_KEY_AUTOSYNC_WIFI, false);
         mCtx = context;
 
         // determine WiFi state.

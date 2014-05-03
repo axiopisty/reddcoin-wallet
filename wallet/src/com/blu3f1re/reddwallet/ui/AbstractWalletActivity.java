@@ -46,7 +46,7 @@ public abstract class AbstractWalletActivity extends SherlockFragmentActivity
 	protected void onCreate(final Bundle savedInstanceState)
 	{
 		application = (WalletApplication) getApplication();
-
+        application.updateLocale();
 		super.onCreate(savedInstanceState);
 	}
 

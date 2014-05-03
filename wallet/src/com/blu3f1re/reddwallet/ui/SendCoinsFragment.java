@@ -26,6 +26,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import com.blu3f1re.reddwallet.offline.DirectPaymentTask;
+
 import org.bitcoin.protocols.payments.Protos;
 import org.bitcoin.protocols.payments.Protos.Payment;
 import org.slf4j.Logger;
@@ -88,7 +89,6 @@ import com.google.reddcoin.core.Wallet.BalanceType;
 import com.google.reddcoin.core.Wallet.SendRequest;
 import com.google.reddcoin.script.ScriptBuilder;
 import com.google.protobuf.ByteString;
-
 import com.blu3f1re.reddwallet.AddressBookProvider;
 import com.blu3f1re.reddwallet.Configuration;
 import com.blu3f1re.reddwallet.Constants;
@@ -103,6 +103,7 @@ import com.blu3f1re.reddwallet.ui.InputParser.StreamInputParser;
 import com.blu3f1re.reddwallet.ui.InputParser.StringInputParser;
 import com.blu3f1re.reddwallet.util.GenericUtils;
 import com.blu3f1re.reddwallet.util.Nfc;
+import com.blu3f1re.reddwallet.util.PaymentProtocol;
 import com.blu3f1re.reddwallet.util.WalletUtils;
 import com.blu3f1re.reddwallet.R;
 
@@ -516,13 +517,13 @@ public final class SendCoinsFragment extends SherlockFragment
 			{
 				initStateFromBitcoinUri(intentUri);
 			}
-			else if ((NfcAdapter.ACTION_NDEF_DISCOVERED.equals(action)) && Constants.MIMETYPE_PAYMENTREQUEST.equals(mimeType))
+			else if ((NfcAdapter.ACTION_NDEF_DISCOVERED.equals(action)) && com.google.reddcoin.protocols.payments.PaymentProtocol.MIMETYPE_PAYMENTREQUEST.equals(mimeType))
 			{
 				final NdefMessage ndefMessage = (NdefMessage) intent.getParcelableArrayExtra(NfcAdapter.EXTRA_NDEF_MESSAGES)[0];
-				final byte[] ndefMessagePayload = Nfc.extractMimePayload(Constants.MIMETYPE_PAYMENTREQUEST, ndefMessage);
+				final byte[] ndefMessagePayload = Nfc.extractMimePayload(com.google.reddcoin.protocols.payments.PaymentProtocol.MIMETYPE_PAYMENTREQUEST, ndefMessage);
 				initStateFromPaymentRequest(mimeType, ndefMessagePayload);
 			}
-			else if ((Intent.ACTION_VIEW.equals(action)) && Constants.MIMETYPE_PAYMENTREQUEST.equals(mimeType))
+			else if ((Intent.ACTION_VIEW.equals(action)) && com.google.reddcoin.protocols.payments.PaymentProtocol.MIMETYPE_PAYMENTREQUEST.equals(mimeType))
 			{
 				final byte[] paymentRequest = BitcoinIntegration.paymentRequestFromIntent(intent);
 
@@ -814,10 +815,8 @@ public final class SendCoinsFragment extends SherlockFragment
 		if (popupWindow != null)
 		{
 			popupWindow.dismiss();
-			popupWindow = null;
 		}
 	}
-
 	private void handleGo()
 	{
 		state = State.PREPARATION;
@@ -834,7 +833,7 @@ public final class SendCoinsFragment extends SherlockFragment
 		sendRequest.changeAddress = returnAddress;
 		sendRequest.emptyWallet = paymentIntent.mayEditAmount() && finalAmount.equals(wallet.getBalance(BalanceType.AVAILABLE));
 
-        //Emptying a wallet with less than 2 RDD can't be possible due to min fee 2 RDD of such a tx.
+        //Emptying a wallet with less than 2 DOGE can't be possible due to min fee 2 DOGE of such a tx.
 /*        if (amount.compareTo(BigInteger.valueOf(200000000)) < 0 && sendRequest.emptyWallet)
         {
             AlertDialog.Builder bld = new AlertDialog.Builder(activity);
@@ -860,7 +859,8 @@ public final class SendCoinsFragment extends SherlockFragment
 
 				sentTransaction.getConfidence().addEventListener(sentTransactionConfidenceListener);
 
-				final Payment payment = createPaymentMessage(sentTransaction, returnAddress, finalAmount, null, paymentIntent.payeeData);
+				final Payment payment = PaymentProtocol.createPaymentMessage(sentTransaction, returnAddress, finalAmount, null,
+						paymentIntent.payeeData);
 
 				directPay(payment);
 
@@ -975,6 +975,7 @@ public final class SendCoinsFragment extends SherlockFragment
 			}
 		}.sendCoinsOffline(sendRequest); // send asynchronously
 	}
+	
 
 	private void handleScan()
 	{
@@ -1348,32 +1349,5 @@ public final class SendCoinsFragment extends SherlockFragment
 				dialog.show();
 			}
 		}, application.httpUserAgent()).requestPaymentRequest(paymentRequestUrl);
-	}
-
-	private static Payment createPaymentMessage(@Nonnull final Transaction transaction, @Nullable final Address refundAddress,
-			@Nullable final BigInteger refundAmount, @Nullable final String memo, @Nullable final byte[] merchantData)
-	{
-		final Protos.Payment.Builder builder = Protos.Payment.newBuilder();
-
-		builder.addTransactions(ByteString.copyFrom(transaction.unsafeBitcoinSerialize()));
-
-		if (refundAddress != null)
-		{
-			if (refundAmount.compareTo(BigInteger.valueOf(Long.MAX_VALUE)) > 0)
-				throw new IllegalArgumentException("refund amount too big for protobuf: " + refundAmount);
-
-			final Protos.Output.Builder refundOutput = Protos.Output.newBuilder();
-			refundOutput.setAmount(refundAmount.longValue());
-			refundOutput.setScript(ByteString.copyFrom(ScriptBuilder.createOutputScript(refundAddress).getProgram()));
-			builder.addRefundTo(refundOutput);
-		}
-
-		if (memo != null)
-			builder.setMemo(memo);
-
-		if (merchantData != null)
-			builder.setMerchantData(ByteString.copyFrom(merchantData));
-
-		return builder.build();
 	}
 }
