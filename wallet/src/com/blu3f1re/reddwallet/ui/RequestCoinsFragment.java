@@ -24,6 +24,7 @@ import javax.annotation.CheckForNull;
 
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -56,14 +57,12 @@ import com.actionbarsherlock.app.SherlockFragment;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
-<<<<<<< HEAD:wallet/src/com/blu3f1re/reddwallet/ui/RequestCoinsFragment.java
 import com.actionbarsherlock.widget.ShareActionProvider;
 import com.google.reddcoin.core.Address;
 import com.google.reddcoin.core.ECKey;
 import com.google.reddcoin.core.Wallet;
 import com.google.reddcoin.script.ScriptBuilder;
 import com.google.reddcoin.uri.BitcoinURI;
-
 import com.blu3f1re.reddwallet.AddressBookProvider;
 import com.blu3f1re.reddwallet.Configuration;
 import com.blu3f1re.reddwallet.Constants;
@@ -74,30 +73,9 @@ import com.blu3f1re.reddwallet.offline.AcceptBluetoothService;
 import com.blu3f1re.reddwallet.util.BitmapFragment;
 import com.blu3f1re.reddwallet.util.Bluetooth;
 import com.blu3f1re.reddwallet.util.Nfc;
-import com.blu3f1re.reddwallet.util.PaymentProtocol;
 import com.blu3f1re.reddwallet.util.Qr;
+import com.blu3f1re.reddwallet.util.PaymentProtocol;
 import com.blu3f1re.reddwallet.R;
-=======
-import com.google.dogecoin.core.Address;
-import com.google.dogecoin.core.ECKey;
-import com.google.dogecoin.core.Wallet;
-import com.google.dogecoin.script.ScriptBuilder;
-import com.google.dogecoin.uri.BitcoinURI;
-
-import de.langerhans.wallet.AddressBookProvider;
-import de.langerhans.wallet.Configuration;
-import de.langerhans.wallet.Constants;
-import de.langerhans.wallet.ExchangeRatesProvider;
-import de.langerhans.wallet.ExchangeRatesProvider.ExchangeRate;
-import de.langerhans.wallet.WalletApplication;
-import de.langerhans.wallet.offline.AcceptBluetoothService;
-import de.langerhans.wallet.util.BitmapFragment;
-import de.langerhans.wallet.util.Bluetooth;
-import de.langerhans.wallet.util.Nfc;
-import de.langerhans.wallet.util.PaymentProtocol;
-import de.langerhans.wallet.util.Qr;
-import de.langerhans.wallet.R;
->>>>>>> bd56e11549adc6515bed5979eba365c46963d6b4:wallet/src/de/langerhans/wallet/ui/RequestCoinsFragment.java
 
 /**
  * @author Andreas Schildbach
@@ -409,7 +387,7 @@ public final class RequestCoinsFragment extends SherlockFragment
 		qrView.setImageBitmap(qrCodeBitmap);
 
 		// update nfc ndef message
-		final boolean nfcSuccess = Nfc.publishMimeObject(nfcManager, activity, PaymentProtocol.MIMETYPE_PAYMENTREQUEST, paymentRequest, false);
+		final boolean nfcSuccess = Nfc.publishMimeObject(nfcManager, activity,  com.google.reddcoin.protocols.payments.PaymentProtocol.MIMETYPE_PAYMENTREQUEST, paymentRequest, false);
 
 		// update initiate request message
 		final SpannableStringBuilder initiateText = new SpannableStringBuilder(getString(R.string.request_coins_fragment_initiate_request_qr));

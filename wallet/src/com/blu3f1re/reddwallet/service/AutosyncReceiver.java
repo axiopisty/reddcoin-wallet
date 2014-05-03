@@ -22,18 +22,17 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.wifi.WifiManager;
 import android.os.BatteryManager;
+
+import com.blu3f1re.reddwallet.Configuration;
 import com.blu3f1re.reddwallet.WalletApplication;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import android.preference.PreferenceManager;
-<<<<<<< HEAD:wallet/src/com/blu3f1re/reddwallet/service/AutosyncReceiver.java
 import android.text.format.DateUtils;
+
 import com.blu3f1re.reddwallet.Constants;
-=======
-import de.langerhans.wallet.Constants;
-import de.langerhans.wallet.Configuration;
->>>>>>> bd56e11549adc6515bed5979eba365c46963d6b4:wallet/src/de/langerhans/wallet/service/AutosyncReceiver.java
 
 /**
  * @author Andreas Schildbach

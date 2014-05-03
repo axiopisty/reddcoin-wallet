@@ -56,9 +56,6 @@ public class Configuration
 	private static final String PREFS_KEY_CHANGE_LOG_VERSION = "change_log_version";
 	public static final String PREFS_KEY_REMIND_BACKUP = "remind_backup";
 
-<<<<<<< HEAD:wallet/src/com/blu3f1re/reddwallet/Configuration.java
-	private static final String PREFS_DEFAULT_BTC_PRECISION = "4";
-=======
     public static final String PREFS_KEY_LAST_USED = "last_used";
     public static final String PREFS_KEY_AUTOSYNC_SWITCH = "auto_sync_switch";
     public static final String PREFS_KEY_AUTOSYNC_CHARGE = "auto_sync_charging";
@@ -71,8 +68,6 @@ public class Configuration
 
     private static final int PREFS_DEFAULT_BTC_SHIFT = 3;
     private static final int PREFS_DEFAULT_BTC_PRECISION = 2;
->>>>>>> bd56e11549adc6515bed5979eba365c46963d6b4:wallet/src/de/langerhans/wallet/Configuration.java
-
 	private static final Logger log = LoggerFactory.getLogger(Configuration.class);
 
 	public Configuration(@Nonnull final SharedPreferences prefs)

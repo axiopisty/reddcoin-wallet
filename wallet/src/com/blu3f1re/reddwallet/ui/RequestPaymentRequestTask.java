@@ -102,7 +102,7 @@ public abstract class RequestPaymentRequestTask
 						connection.setDoOutput(false);
 
 						connection.setRequestMethod("GET");
-						connection.setRequestProperty("Accept", PaymentProtocol.MIMETYPE_PAYMENTREQUEST);
+						connection.setRequestProperty("Accept", com.google.reddcoin.protocols.payments.PaymentProtocol.MIMETYPE_PAYMENTREQUEST);
 						if (userAgent != null)
 							connection.addRequestProperty("User-Agent", userAgent);
 						connection.connect();

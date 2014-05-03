@@ -110,16 +110,10 @@ public class ExchangeRatesProvider extends ContentProvider
 		{
 			BITCOINAVERAGE_URL = new URL("https://api.bitcoinaverage.com/custom/abw");
             BLOCKCHAININFO_URL = new URL("https://blockchain.info/ticker");
-<<<<<<< HEAD:wallet/src/com/blu3f1re/reddwallet/ExchangeRatesProvider.java
             //RDDPOOL_URL = new URL("http://dogepool.com/lastdoge");
             //CRYPTSY_URL = new URL("http://pubapi.cryptsy.com/api.php?method=singlemarketdata&marketid=132");
             //VIRCUREX_URL = new URL("https://vircurex.com/api/get_last_trade.json?base=DOGE&alt=BTC");
             BITTREX_URL = new URL("https://bittrex.com/api/v1/public/getticker?market=BTC-RDD");
-=======
-            DOGEPOOL_URL = new URL("http://dogepool.com/lastdoge");
-            CRYPTSY_URL = new URL("http://pubapi.cryptsy.com/api.php?method=singlemarketdata&marketid=132");
-            VIRCUREX_URL = new URL("https://api.vircurex.com/api/get_last_trade.json?base=DOGE&alt=BTC");
->>>>>>> bd56e11549adc6515bed5979eba365c46963d6b4:wallet/src/de/langerhans/wallet/ExchangeRatesProvider.java
 		}
 		catch (final MalformedURLException x)
 		{

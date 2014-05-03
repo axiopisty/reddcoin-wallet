@@ -26,6 +26,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import com.blu3f1re.reddwallet.offline.DirectPaymentTask;
+
 import org.bitcoin.protocols.payments.Protos;
 import org.bitcoin.protocols.payments.Protos.Payment;
 import org.slf4j.Logger;
@@ -88,7 +89,6 @@ import com.google.reddcoin.core.Wallet.BalanceType;
 import com.google.reddcoin.core.Wallet.SendRequest;
 import com.google.reddcoin.script.ScriptBuilder;
 import com.google.protobuf.ByteString;
-
 import com.blu3f1re.reddwallet.AddressBookProvider;
 import com.blu3f1re.reddwallet.Configuration;
 import com.blu3f1re.reddwallet.Constants;
@@ -103,6 +103,7 @@ import com.blu3f1re.reddwallet.ui.InputParser.StreamInputParser;
 import com.blu3f1re.reddwallet.ui.InputParser.StringInputParser;
 import com.blu3f1re.reddwallet.util.GenericUtils;
 import com.blu3f1re.reddwallet.util.Nfc;
+import com.blu3f1re.reddwallet.util.PaymentProtocol;
 import com.blu3f1re.reddwallet.util.WalletUtils;
 import com.blu3f1re.reddwallet.R;
 
@@ -516,13 +517,13 @@ public final class SendCoinsFragment extends SherlockFragment
 			{
 				initStateFromBitcoinUri(intentUri);
 			}
-			else if ((NfcAdapter.ACTION_NDEF_DISCOVERED.equals(action)) && PaymentProtocol.MIMETYPE_PAYMENTREQUEST.equals(mimeType))
+			else if ((NfcAdapter.ACTION_NDEF_DISCOVERED.equals(action)) && com.google.reddcoin.protocols.payments.PaymentProtocol.MIMETYPE_PAYMENTREQUEST.equals(mimeType))
 			{
 				final NdefMessage ndefMessage = (NdefMessage) intent.getParcelableArrayExtra(NfcAdapter.EXTRA_NDEF_MESSAGES)[0];
-				final byte[] ndefMessagePayload = Nfc.extractMimePayload(PaymentProtocol.MIMETYPE_PAYMENTREQUEST, ndefMessage);
+				final byte[] ndefMessagePayload = Nfc.extractMimePayload(com.google.reddcoin.protocols.payments.PaymentProtocol.MIMETYPE_PAYMENTREQUEST, ndefMessage);
 				initStateFromPaymentRequest(mimeType, ndefMessagePayload);
 			}
-			else if ((Intent.ACTION_VIEW.equals(action)) && PaymentProtocol.MIMETYPE_PAYMENTREQUEST.equals(mimeType))
+			else if ((Intent.ACTION_VIEW.equals(action)) && com.google.reddcoin.protocols.payments.PaymentProtocol.MIMETYPE_PAYMENTREQUEST.equals(mimeType))
 			{
 				final byte[] paymentRequest = BitcoinIntegration.paymentRequestFromIntent(intent);
 
@@ -814,6 +815,8 @@ public final class SendCoinsFragment extends SherlockFragment
 		if (popupWindow != null)
 		{
 			popupWindow.dismiss();
+		}
+	}
 	private void handleGo()
 	{
 		state = State.PREPARATION;
@@ -970,11 +973,9 @@ public final class SendCoinsFragment extends SherlockFragment
 
 				activity.longToast(R.string.send_coins_error_msg);
 			}
-		}.sendCoinsOffline(sendRequest);
-		}
-		(sendRequest); // send asynchronously
+		}.sendCoinsOffline(sendRequest); // send asynchronously
 	}
-	}
+	
 
 	private void handleScan()
 	{

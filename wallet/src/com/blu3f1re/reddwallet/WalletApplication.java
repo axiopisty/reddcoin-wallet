@@ -28,13 +28,9 @@ import java.util.concurrent.TimeUnit;
 
 import javax.annotation.Nonnull;
 
-<<<<<<< HEAD:wallet/src/com/blu3f1re/reddwallet/WalletApplication.java
 import com.blu3f1re.reddwallet.service.AutosyncReceiver;
-=======
 import android.content.res.Resources;
-import de.langerhans.wallet.service.AutosyncReceiver;
 import org.bitcoinj.wallet.Protos;
->>>>>>> bd56e11549adc6515bed5979eba365c46963d6b4:wallet/src/de/langerhans/wallet/WalletApplication.java
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

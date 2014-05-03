@@ -980,11 +980,7 @@ public final class WalletActivity extends AbstractOnDemandServiceActivity
 		intent.putExtra(Intent.EXTRA_TEXT,
 				getString(R.string.export_keys_dialog_mail_text) + "\n\n" + String.format(Constants.WEBMARKET_APP_URL, getPackageName()) + "\n\n"
 						+ Constants.SOURCE_URL + '\n');
-<<<<<<< HEAD:wallet/src/com/blu3f1re/reddwallet/ui/WalletActivity.java
-		intent.setType("x-reddcoin/private-keys");
-=======
 		intent.setType(Constants.MIMETYPE_BACKUP_PRIVATE_KEYS);
->>>>>>> bd56e11549adc6515bed5979eba365c46963d6b4:wallet/src/de/langerhans/wallet/ui/WalletActivity.java
 		intent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(file));
 
 		try
