@@ -3,8 +3,8 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	package="com.blu3f1re.reddwallet"
 	android:installLocation="internalOnly"
-	android:versionCode="5"
-	android:versionName="1.04" >
+	android:versionCode="6"
+	android:versionName="1.05" >
 	
 	<uses-sdk
 		android:minSdkVersion="10"
